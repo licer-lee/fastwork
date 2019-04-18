@@ -7,23 +7,43 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author licer
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PageModel<E> implements Serializable {
 
-    //总记录数
+    /**
+     * 总记录数
+     */
     private int totalCount;
 
-    private int pageSize = 10; //每页显示的数量
+    /**
+     *每页显示的数量
+     */
+    private int pageSize = 10;
 
-    private int totalPage; //总页数
+    /**
+     * 总页数
+     */
+    private int totalPage;
 
-    private int currentPage = 1; //当前页数
+    /**
+     * 当前页数
+     */
+    private int currentPage = 1;
 
-    private List<E> list; //分页集合列表
+    /**
+     * 分页集合列表
+     */
+    private List<E> list;
 
-    private String url; //分页跳转的URL
+    /**
+     * 分页跳转的URL
+     */
+    private String url;
 
 
 }
