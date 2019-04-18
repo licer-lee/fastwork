@@ -8,11 +8,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+/**
+ * @author licer
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "sys_role")
-public class TRole extends BaseEntity {
+public class SysRole extends BaseEntity {
 
     @Column(nullable = false)
     private String roleName;
