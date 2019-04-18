@@ -17,9 +17,17 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseEntity extends MysqlSquenceIdEntity implements Serializable {
 
+    //逻辑删除标识位—已删除状态
     public static final Integer DELETE_FLAG_DELETED = 1;
+    //逻辑删除标识位—未删除状态
     public static final Integer DELETE_FLAG_NORMAL = 0;
 
+    //审核状态标识位—未审核
+    public static final Integer AUDIT_FLAG_NOT = 0;
+    //审核状态标识位—审核通过
+    public static final Integer AUDIT_FLAG_PASS = 1;
+    //审核状态标识位—审核通不过
+    public static final Integer AUDIT_FLAG_FAIL = 2;
 
     /**
      * 创建时间
@@ -45,10 +53,12 @@ public class BaseEntity extends MysqlSquenceIdEntity implements Serializable {
      * 数据标志
      */
    @Column(nullable = false)
-   protected Integer deletedFlag;
+   protected Integer deletedFlag = DELETE_FLAG_NORMAL;
 
 
-
+    /**
+     * 持久化前操作
+     */
    @PrePersist
     public void prePersit(){
        if(this.createAt == null){
@@ -61,6 +71,9 @@ public class BaseEntity extends MysqlSquenceIdEntity implements Serializable {
    }
 
 
+    /**
+     * 更新前操作
+     */
    @PreUpdate
     public void preUpdate(){
        this.setUpdateAt(new Date());
