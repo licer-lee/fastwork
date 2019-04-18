@@ -6,8 +6,9 @@ import com.licerlee.fastwork.module.admin.entity.SysRole;
 /**
  * @author licer
  */
-public interface RoleDao extends CommonDao<SysRole, String>, RoleCustomDao {
+public interface RoleDao extends RoleCustomDao,  CommonDao<SysRole, String> {
 
 
+    public SysRole findByRoleName(String roleName);
 
 }
