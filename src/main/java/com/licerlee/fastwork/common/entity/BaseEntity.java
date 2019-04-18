@@ -29,22 +29,22 @@ public class BaseEntity extends MysqlSquenceIdEntity implements Serializable {
     /**
      * 创建人
      */
-    @Column
+    @Column(nullable = false)
    protected String createBy;
     /**
      * 最后更新时间
      */
-   @Column
+   @Column(nullable = false)
    protected Date updateAt;
     /**
      * 最后操作人
      */
-   @Column
+   @Column(nullable = false)
    protected String updateBy;
     /**
      * 数据标志
      */
-   @Column
+   @Column(nullable = false)
    protected Integer deletedFlag;
 
 
